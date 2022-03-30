@@ -1,16 +1,16 @@
 import React from "react";
-import {Drawer, Button, Row, Col} from "antd";
+import { Drawer, Button, Row, Col } from "antd";
 import 'antd/es/drawer/style/css';
 import 'antd/es/button/style/css';
 import 'antd/es/grid/style/css';
-import {useSettingsContext} from "../../contexts/SettingsContext";
-import {SettingsContextProvider} from "../../contexts/SettingsContext";
-import {ModalSecondLayer} from "../modal/ModalSecondLayer"
+import { useSettingsContext } from "../../contexts/SettingsContext";
+// import { SettingsContextProvider } from "../../contexts/SettingsContext";
+import { ModalSecondLayer } from "../modal/ModalSecondLayer"
 
-export const Banner = ({onAcceptAll, onDenyAll}) => {
+export const Banner = ({ onAcceptAll, onDenyAll }) => {
     const { loading, settings } = useSettingsContext();
     return loading ? (
-        <React.Fragment/>
+        <React.Fragment />
     ) : (
         <React.Fragment>
             <Drawer closable={false} maskClosable={false} visible={true} height={180} placement={'bottom'}>
@@ -18,13 +18,10 @@ export const Banner = ({onAcceptAll, onDenyAll}) => {
                     <Col span={24}>{settings.ui.firstLayer.description.default}</Col>
                 </Row>
                 <Row>
-                    <Col span={24} style={{height: '10px'}}></Col>
+                    <Col span={24} style={{ height: '10px' }}></Col>
                 </Row>
                 <Row>
-                <ModalSecondLayer />
-                <Col offset={18} span={2}>
-                        <Button onClick={ModalSecondLayer} type={'link'}>{settings.ui.buttons.showSecondLayer.label}</Button>
-                    </Col>
+                    <ModalSecondLayer />
                     <Col span={2}>
                         <Button onClick={onDenyAll}>{settings.ui.buttons.denyAll.label}</Button>
                     </Col>
