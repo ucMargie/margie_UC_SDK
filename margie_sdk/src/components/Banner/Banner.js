@@ -21,6 +21,7 @@ export const Banner = ({onAcceptAll, onDenyAll}) => {
                     <Col span={24} style={{height: '10px'}}></Col>
                 </Row>
                 <Row>
+                <ModalSecondLayer />
                 <Col offset={18} span={2}>
                         <Button onClick={ModalSecondLayer} type={'link'}>{settings.ui.buttons.showSecondLayer.label}</Button>
                     </Col>
