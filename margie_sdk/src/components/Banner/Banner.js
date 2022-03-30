@@ -5,6 +5,7 @@ import 'antd/es/button/style/css';
 import 'antd/es/grid/style/css';
 import {useSettingsContext} from "../../contexts/SettingsContext";
 import {SettingsContextProvider} from "../../contexts/SettingsContext";
+import {ModalSecondLayer} from "../modal/ModalSecondLayer"
 
 export const Banner = ({onAcceptAll, onDenyAll}) => {
     const { loading, settings } = useSettingsContext();
@@ -20,7 +21,10 @@ export const Banner = ({onAcceptAll, onDenyAll}) => {
                     <Col span={24} style={{height: '10px'}}></Col>
                 </Row>
                 <Row>
-                    <Col offset={18} span={2}>
+                <Col offset={18} span={2}>
+                        <Button onClick={ModalSecondLayer} type={'link'}>{settings.ui.buttons.showSecondLayer.label}</Button>
+                    </Col>
+                    <Col span={2}>
                         <Button onClick={onDenyAll}>{settings.ui.buttons.denyAll.label}</Button>
                     </Col>
                     <Col span={2}>
