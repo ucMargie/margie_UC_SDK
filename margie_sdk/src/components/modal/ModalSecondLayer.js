@@ -2,24 +2,34 @@ import React, { useState } from 'react';
 import { Modal, Button } from 'antd';
 
 export const ModalSecondLayer = () => {
-  const [visible, setVisible] = useState(true);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  const showModal = () => {
+    setIsModalVisible(true);
+  };
+
+  const handleOk = () => {
+    setIsModalVisible(false);
+  };
+
+  const handleCancel = () => {
+    setIsModalVisible(false);
+  };
+
   return (
     <>
-      <Button type="primary" onClick={() => setVisible(true)}>
+      <Button type="primary" onClick={showModal}>
         Open Modal
       </Button>
-      <Modal
-        title="Modal 1000px width"
-        centered
-        visible={visible}
-        onOk={() => setVisible(false)}
-        onCancel={() => setVisible(false)}
-        width={1000}
-      >
-        <p>test</p>
+      <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>  <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>  <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
       </Modal>
     </>
   );
 };
-
-//ReactDOM.render(<App />, mountNode);
